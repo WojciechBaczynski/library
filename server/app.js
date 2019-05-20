@@ -10,7 +10,7 @@ var books = db.addCollection("books");
 books.insert({
   title: "Harry Potter",
   author: "J.K. Rowling",
-  ISBN: 1234567898765,
+  ISBN: 1000000000000,
   pages: 500,
   rate: 4
 });
@@ -30,10 +30,7 @@ app.get("/books/:id", (req, res) => {
 
 app.post("/books", (req, res) => {
   const book = req.body;
-  if (
-    book &&
-    (book.ISBN.toString().length === 10 || book.ISBN.toString().length === 13)
-  ) {
+  if (book && book.ISBN.toString().length === 13) {
     books.insert(book);
     res.status = 201;
     res.send(book);

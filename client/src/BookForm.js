@@ -26,42 +26,50 @@ class BookForm extends Component {
 
   render() {
     return (
-      <div>
-        <input
-          name="title"
-          onChange={this.handleOnChange}
-          type="text"
-          placeholder="title"
-          value={this.state.title}
-        />
-        <input
-          name="author"
-          onChange={this.handleOnChange}
-          type="text"
-          placeholder="author"
-          value={this.state.author}
-        />
-        <input
-          name="ISBN"
-          onChange={this.handleOnChange}
-          type="number"
-          placeholder="ISBN"
-          value={this.state.ISBN}
-        />
-        <input
-          name="pages"
-          onChange={this.handleOnChange}
-          type="number"
-          placeholder="pages"
-          value={this.state.pages}
-        />
-        <input
-          name="rate"
-          onChange={this.handleOnChange}
-          type="number"
-          placeholder="rate"
-          value={this.state.rate}
-        />
+      <>
+        <div>
+          <input
+            name="title"
+            onChange={this.handleOnChange}
+            type="text"
+            placeholder="title"
+            value={this.state.title}
+          />
+          <input
+            name="author"
+            onChange={this.handleOnChange}
+            type="text"
+            placeholder="author"
+            value={this.state.author}
+          />
+          <input
+            name="ISBN"
+            onChange={this.handleOnChange}
+            type="number"
+            placeholder="ISBN"
+            value={this.state.ISBN}
+            min="1000000000000"
+            max="9999999999999"
+          />
+          <input
+            name="pages"
+            onChange={this.handleOnChange}
+            type="number"
+            placeholder="pages"
+            value={this.state.pages}
+            min="1"
+            max="10000"
+          />
+          <input
+            name="rate"
+            onChange={this.handleOnChange}
+            type="number"
+            placeholder="rate"
+            value={this.state.rate}
+            min="1"
+            max="5"
+          />
+        </div>
         <button
           onClick={() => {
             this.props.handleSubmit(this.state);
@@ -69,7 +77,7 @@ class BookForm extends Component {
         >
           Submit
         </button>
-      </div>
+      </>
     );
   }
 }
